@@ -1,0 +1,32 @@
+graph LR
+    subgraph NORMAL["NORMAL MODE"]
+        direction TB
+        N1["RCS Temperature Trend"]
+        N2["Annotation: slight upward trend<br/>noted over 4 hours"]
+        N3["All parameters normal"]
+    end
+
+    subgraph ABNORMAL["ABNORMAL MODE"]
+        direction TB
+        A1["RCS P&amp;ID: hot leg flagged"]
+        A2["0.3°F/hr rise · 4.2°F margin<br/>22 min to alarm setpoint"]
+        A3["Verify power distribution<br/>Check RTD calibration"]
+    end
+
+    subgraph EMERGENCY["EMERGENCY MODE"]
+        direction TB
+        E1["1. Verify RCP status<br/>2. Check PRZR level<br/>3. Initiate RCS sample"]
+        E2["RCS Temp 598.3°F<br/>Limit 602.5°F · RISING"]
+    end
+
+    style NORMAL fill:#d4edda,stroke:#155724,stroke-width:2px
+    style ABNORMAL fill:#fff3cd,stroke:#856404,stroke-width:2px
+    style EMERGENCY fill:#f8d7da,stroke:#721c24,stroke-width:2px
+    style N1 fill:#e8f5e9,stroke:#2e7d32
+    style N2 fill:#e8f5e9,stroke:#2e7d32
+    style N3 fill:#e8f5e9,stroke:#2e7d32
+    style A1 fill:#fff8e1,stroke:#f9a825
+    style A2 fill:#fff8e1,stroke:#f9a825
+    style A3 fill:#fff8e1,stroke:#f9a825
+    style E1 fill:#ffebee,stroke:#c62828
+    style E2 fill:#ffcdd2,stroke:#c62828,stroke-width:2px

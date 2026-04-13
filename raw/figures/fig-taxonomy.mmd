@@ -1,0 +1,34 @@
+graph TB
+    subgraph SINGLE["SINGLE-AGENT"]
+        P0["Pattern 0<br/>Role Simulation<br/><small>One model, multiple labels</small><br/><small>No concurrency, no isolation</small>"]
+    end
+
+    subgraph SEQUENTIAL["SEQUENTIAL MULTI-AGENT"]
+        P1["Pattern 1<br/>Autonomous Loop<br/><small>Self-directed task queue</small>"]
+        P2["Pattern 2<br/>Sequential Pipeline<br/><small>Fixed-order task flow</small>"]
+        P6["Pattern 6<br/>Handoff / Transfer<br/><small>Explicit serial relay</small>"]
+    end
+
+    subgraph ORCHESTRATED["ORCHESTRATED MULTI-AGENT"]
+        P3["Pattern 3<br/>Orchestrator-Worker<br/><small>Central coordinator</small><br/><small>Partial concurrency</small>"]
+        P4["Pattern 4<br/>Role-Based Crew<br/><small>Fixed roles, process-driven</small>"]
+        P8["Pattern 8<br/>Org Hierarchy<br/><small>Top-down task assignment</small><br/><small>Task-level concurrency</small>"]
+    end
+
+    subgraph CONVERSATIONAL["CONVERSATIONAL MULTI-AGENT"]
+        P5["Pattern 5<br/>Group Chat<br/><small>Shared history</small><br/><small>Speaker selection</small>"]
+        P7["Pattern 7<br/>Personal Assistant<br/><small>Heartbeat + soul</small><br/><small>Persistent identity</small>"]
+        P9["Pattern 9<br/>Shared Room<br/><small>Concurrent operation</small><br/><small>Per-agent context isolation</small><br/><small>Human as peer</small>"]
+    end
+
+    SINGLE -.->|"add task queue"| SEQUENTIAL
+    SEQUENTIAL -.->|"add coordinator"| ORCHESTRATED
+    ORCHESTRATED -.->|"add shared space"| CONVERSATIONAL
+    P5 -.->|"add concurrency<br/>+ context isolation"| P9
+
+    style SINGLE fill:#f5f5f5,stroke:#999
+    style SEQUENTIAL fill:#e3f2fd,stroke:#1565c0
+    style ORCHESTRATED fill:#fff3e0,stroke:#e65100
+    style CONVERSATIONAL fill:#e8f5e9,stroke:#2e7d32
+    style P0 fill:#eee,stroke:#999
+    style P9 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px

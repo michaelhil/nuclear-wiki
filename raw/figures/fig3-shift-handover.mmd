@@ -1,0 +1,39 @@
+graph TB
+    subgraph TITLE["SHIFT HANDOVER SUMMARY — Night to Day · 2026-03-15 06:45"]
+        direction LR
+        subgraph M1["MODULE 1"]
+            direction TB
+            M1S["Status: NORMAL"]
+            M1E["Notable Events: None"]
+            M1C["Current: All params normal"]
+            M1O["Open Items: None"]
+        end
+        subgraph M2["MODULE 2"]
+            direction TB
+            M2S["Status: NORMAL"]
+            M2E["⚠ FW Control Valve oscillation<br/>03:00–03:15 · Self-corrected<br/>3rd event in 90 days"]
+            M2C["Current: All params normal"]
+            M2O["Open: Monitor FW valve"]
+        end
+        subgraph M3["MODULE 3"]
+            direction TB
+            M3S["Status: NORMAL"]
+            M3E["Notable Events: None"]
+            M3C["Current: All params normal"]
+            M3O["Open Items: None"]
+        end
+        subgraph M4["MODULE 4"]
+            direction TB
+            M4S["Status: NORMAL"]
+            M4E["Notable Events: None"]
+            M4C["Current: All params normal"]
+            M4O["Open Items: None"]
+        end
+    end
+
+    style M2 fill:#fff3cd,stroke:#856404,stroke-width:2px
+    style M2E fill:#ffe0b2,stroke:#e65100,stroke-width:2px
+    style M1 fill:#e8f5e9,stroke:#2e7d32
+    style M3 fill:#e8f5e9,stroke:#2e7d32
+    style M4 fill:#e8f5e9,stroke:#2e7d32
+    style TITLE fill:#f5f5f5,stroke:#333,stroke-width:2px

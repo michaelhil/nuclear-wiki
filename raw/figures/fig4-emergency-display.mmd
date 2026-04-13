@@ -1,0 +1,53 @@
+graph TB
+    subgraph HEADER["EMERGENCY: SMALL-BREAK LOCA · EOP-E0 Step 14 · T+00:45:12"]
+        direction LR
+        subgraph CP["CRITICAL PARAMETERS"]
+            direction TB
+            CP1["RCS Press: 1247 psig ▼"]
+            CP2["Subcooling: 18.3°F ▼"]
+            CP3["PRZR Level: 12% ⚠"]
+            CP4["Ctmt Press: 2.1 psig ▲"]
+        end
+
+        subgraph ECCS["ECCS STATUS"]
+            direction TB
+            EC1["SI Pumps: A-RUN  B-RUN"]
+            EC2["Accumulators: ALL ARMED"]
+            EC3["RHR: A-STBY  B-STBY"]
+            EC4["Ctmt Spray: AUTO READY"]
+        end
+    end
+
+    subgraph LOWER[" "]
+        direction LR
+        subgraph PROJ["PROJECTION — RELAP5"]
+            direction TB
+            P1["Core exit saturation: ~45 min<br/>at current depressurisation rate"]
+            P2["Stable injection: CONFIRMED"]
+            P3["NEXT DECISION POINT:<br/>Transition to recirc at ~T+2:00"]
+        end
+
+        subgraph TEAM["AGENT TEAM STATUS"]
+            direction TB
+            T1["Core Safety: ACTIVE — Model X"]
+            T2["ECCS Monitor: ACTIVE — Model X"]
+            T3["Ctmt Monitor: ACTIVE — Model Y"]
+            T4["Adversarial: ACTIVE — Model Z"]
+            T5["Delivery: FLOW-GATE"]
+        end
+    end
+
+    subgraph ALERT["⚠ UNRESOLVED: Adversarial agent notes RHR-B flow oscillation. Verify RHR-B operability before recirculation transition."]
+    end
+
+    HEADER --- LOWER --- ALERT
+
+    style HEADER fill:#f8d7da,stroke:#721c24,stroke-width:2px
+    style CP fill:#ffcdd2,stroke:#c62828
+    style CP3 fill:#ff8a80,stroke:#c62828,stroke-width:2px
+    style ECCS fill:#c8e6c9,stroke:#2e7d32
+    style PROJ fill:#e3f2fd,stroke:#1565c0
+    style TEAM fill:#f5f5f5,stroke:#616161
+    style T4 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style ALERT fill:#fff3cd,stroke:#856404,stroke-width:2px
+    style LOWER fill:none,stroke:none

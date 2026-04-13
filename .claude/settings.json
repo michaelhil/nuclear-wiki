@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "nuclear-wiki": {
+      "command": "bun",
+      "args": ["run", "src/mcp-server.ts"],
+      "cwd": "/Users/Michael.Hildebrandt@ife.no/Claude/nuclear-wiki"
+    }
+  }
+}

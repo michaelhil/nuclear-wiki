@@ -1,0 +1,177 @@
+site_name: Nuclear AI Wiki
+site_description: A living knowledge base on AI agent systems for nuclear power plant operations
+site_author: Michael Hildebrandt, IFE
+docs_dir: wiki
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - toc.integrate
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - tags:
+      tags_file: tags.md
+  - roamlinks
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Home: index.md
+  - Source Summaries:
+    - summaries/summary-llm-foundations.md
+    - summaries/summary-multiagent.md
+    - summaries/summary-nuclear-regulatory.md
+    - summaries/summary-scenarios.md
+    - summaries/summary-hra.md
+    - summaries/summary-prototyping-guide.md
+  - Concepts:
+    - LLM Fundamentals:
+      - concepts/transformer-architecture.md
+      - concepts/tokenization.md
+      - concepts/context-windows.md
+      - concepts/statelessness.md
+      - concepts/non-determinism.md
+      - concepts/post-training-alignment.md
+      - concepts/hallucination.md
+      - concepts/calibration.md
+      - concepts/sycophancy.md
+    - Knowledge & Grounding:
+      - concepts/retrieval-augmented-generation.md
+      - concepts/knowledge-graphs.md
+      - concepts/tool-calling.md
+      - concepts/fine-tuning.md
+      - concepts/quantization.md
+    - Agent Architecture:
+      - concepts/agent-architecture.md
+      - concepts/prompt-engineering.md
+      - concepts/context-management.md
+      - concepts/multi-agent-patterns.md
+      - concepts/delivery-modes.md
+      - concepts/context-divergence.md
+    - Independence & Safety:
+      - concepts/epistemic-independence.md
+      - concepts/monoculture-collapse.md
+      - concepts/model-heterogeneity.md
+      - concepts/common-cause-failure.md
+      - concepts/defense-in-depth.md
+    - Human Factors:
+      - concepts/situation-awareness.md
+      - concepts/human-authority.md
+      - concepts/automation-bias.md
+      - concepts/trust-calibration.md
+      - concepts/operator-modelling.md
+    - Nuclear Operations:
+      - concepts/graded-autonomy-tiers.md
+      - concepts/alarm-prioritization.md
+      - concepts/shift-handover.md
+      - concepts/emergency-response.md
+      - concepts/procedure-ai-interaction.md
+      - concepts/hsi-architecture.md
+    - HRA & Assessment:
+      - concepts/human-reliability-analysis.md
+      - concepts/spar-h.md
+      - concepts/idheas-eca.md
+      - concepts/atheana.md
+      - concepts/performance-shaping-factors.md
+      - concepts/psa-integration.md
+      - concepts/build-vs-assess-gap.md
+    - Prototyping:
+      - concepts/capability-gradient.md
+      - concepts/local-deployment.md
+      - concepts/simulator-coupling.md
+      - concepts/evaluation-harness.md
+  - Comparisons:
+    - comparisons/rag-vs-fine-tuning.md
+    - comparisons/single-agent-vs-multi-agent.md
+    - comparisons/frontier-vs-local-models.md
+    - comparisons/hra-methods-compared.md
+  - Scenarios:
+    - scenarios/scenario-shift-handover.md
+    - scenarios/scenario-rcs-temperature.md
+    - scenarios/scenario-concurrent-alarms.md
+    - scenarios/scenario-safety-verification.md
+    - scenarios/scenario-loca.md
+    - scenarios/scenario-fuel-monitoring.md
+    - scenarios/scenario-instrument-failure.md
+    - scenarios/scenario-multi-unit-smr.md
+    - scenarios/scenario-compound-event.md
+  - Entities:
+    - Organizations:
+      - entities/nrc.md
+      - entities/iaea.md
+      - entities/epri.md
+    - Frameworks & Tools:
+      - entities/crewai.md
+      - entities/autogen.md
+      - entities/langgraph.md
+      - entities/letta.md
+      - entities/mcp.md
+      - entities/ollama.md
+    - Simulation:
+      - entities/relap5.md
+      - entities/frapcon.md
+    - Reactor Types:
+      - entities/pwr.md
+      - entities/smr.md
+    - Standards & Regulations:
+      - entities/10cfr50.md
+      - entities/nureg-0700.md
+      - entities/nureg-0711.md
+      - entities/nureg-1792.md
+      - entities/nureg-2199.md
+  - Activity Log: log.md
+  - Tags: tags.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com

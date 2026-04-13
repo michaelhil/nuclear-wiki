@@ -1,0 +1,37 @@
+graph TB
+    subgraph OVR["LARGE OVERVIEW DISPLAY"]
+        direction LR
+        PS["Plant Status Summary<br/><i>SA Bridge output</i>"]
+        ATS["Agent Team Status<br/>5 active · flow-gate mode"]
+        PA["Priority Alerts<br/><i>Synthesiser output</i>"]
+    end
+
+    subgraph RO["REACTOR OPERATOR WORKSTATION"]
+        direction TB
+        RO_PID["Annotated P&amp;ID — RCS<br/><small>AI advisory · yellow background</small>"]
+        RO_TREND["Trend + Projection Display<br/><small>RCS Temp with 30-min projection</small>"]
+        RO_SAFE["QUALIFIED SAFETY DISPLAY<br/><small>Safety classified · no AI content</small>"]
+    end
+
+    subgraph SS["SHIFT SUPERVISOR WORKSTATION"]
+        direction TB
+        SS_SUM["Cross-System Summary<br/><small>AI advisory · yellow background</small>"]
+        SS_AGENT["Agent Assessments<br/><small>All agents · drill-down available</small>"]
+        SS_SAFE["QUALIFIED SAFETY DISPLAY<br/><small>Safety classified · no AI content</small>"]
+    end
+
+    OVR --- RO
+    OVR --- SS
+
+    style OVR fill:#e8e8e8,stroke:#333,stroke-width:2px
+    style RO fill:#f5f5dc,stroke:#666
+    style SS fill:#f5f5dc,stroke:#666
+    style RO_SAFE fill:#d4edda,stroke:#155724,stroke-width:2px
+    style SS_SAFE fill:#d4edda,stroke:#155724,stroke-width:2px
+    style RO_PID fill:#fff3cd,stroke:#856404
+    style RO_TREND fill:#fff3cd,stroke:#856404
+    style SS_SUM fill:#fff3cd,stroke:#856404
+    style SS_AGENT fill:#fff3cd,stroke:#856404
+    style PS fill:#cce5ff,stroke:#004085
+    style ATS fill:#cce5ff,stroke:#004085
+    style PA fill:#cce5ff,stroke:#004085
