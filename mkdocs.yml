@@ -5,6 +5,7 @@ docs_dir: wiki
 
 theme:
   name: material
+  custom_dir: overrides
   palette:
     - scheme: default
       primary: indigo
@@ -180,6 +181,8 @@ nav:
   - Tags: tags.md
 
 extra:
+  wiki_version: !ENV [WIKI_VERSION, "dev"]
+  feedback_worker_url: !ENV [FEEDBACK_WORKER_URL, ""]
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com
+      link: https://github.com/michaelhil/nuclear-wiki

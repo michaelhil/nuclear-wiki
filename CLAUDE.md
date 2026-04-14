@@ -110,6 +110,45 @@ When asked to lint or review the wiki:
 6. **Confidence audit**: Review pages marked `low` confidence for possible upgrades
 7. Report findings and offer to fix issues
 
+### PROCESS FEEDBACK (batch review cycle)
+
+When asked to process feedback:
+
+1. **Retrieve** all open feedback issues:
+   ```bash
+   gh issue list --label wiki-feedback --state open --json number,title,body,labels,createdAt
+   ```
+
+2. **Parse** each issue: extract `WIKI-FEEDBACK-META` block from issue body. Group by page, then by section.
+
+3. **Staleness check** for each issue:
+   ```bash
+   git diff <issue_wiki_version>..HEAD -- wiki/<page>.md
+   ```
+   - Target section unchanged → feedback is current, process it
+   - Target section changed → check if feedback was already addressed
+   - Section deleted → mark stale
+
+4. **Process each page** with current feedback:
+   - Read the current wiki page
+   - Read all feedback items for that page
+   - Determine which are actionable
+   - Update the page content
+   - Ensure changes are consistent with source reports in `raw/`
+
+5. **Report per issue**:
+   - Addressed: `gh issue comment <number> --body "Addressed in commit <sha>. Change: [description]."` then `gh issue close <number>`
+   - Not addressable: `gh issue comment <number> --body "Reviewed but not addressed. Reason: [explanation]"` then `gh issue edit <number> --add-label "needs-human-review"`
+   - Stale: `gh issue comment <number> --body "Section modified since submission. Please review current version and resubmit if issue persists."` then `gh issue close <number> --reason "not planned"`
+
+6. **Write batch archive** to `feedback/batch-YYYY-MM-DD.md` with YAML frontmatter listing addressed, deferred, and stale issues. See DESIGN.md for the archive format.
+
+7. **Commit**: reference issue numbers in commit message (`Fixes #12, #15, ...`)
+
+8. **Summary**: create a GitHub Issue summarising the batch.
+
+9. **Log**: append to `wiki/log.md`.
+
 ### UPDATE (modifying existing knowledge)
 
 When updating wiki pages:
