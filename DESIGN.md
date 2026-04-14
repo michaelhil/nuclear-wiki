@@ -47,8 +47,8 @@ Enable non-technical nuclear domain experts to submit structured feedback on spe
 ┌──────────────────────┴──────────────────────────────────┐
 │                 FEEDBACK COLLECTION                      │
 │                                                         │
-│  Browser form       POST to Cloudflare Worker           │
-│  Cloudflare Worker  Thin proxy (~30 lines TS)           │
+│  Browser form       POST to Vercel Serverless Function           │
+│  Vercel Serverless Function  Thin proxy (~30 lines TS)           │
 │                     Receives POST, creates GitHub Issue  │
 │                     Uses GitHub PAT stored as env secret │
 └──────────────────────┬──────────────────────────────────┘
@@ -135,9 +135,9 @@ On submit: brief "Thank you" toast, popover closes. On error: "Could not submit 
 
 ### No authentication required
 
-The form submits directly to the Cloudflare Worker. No login, no GitHub account, no CAPTCHA (rate limiting handled server-side).
+The form submits directly to the Vercel Serverless Function. No login, no GitHub account, no CAPTCHA (rate limiting handled server-side).
 
-## Cloudflare Worker
+## Vercel Serverless Function
 
 ### Purpose
 
@@ -145,10 +145,10 @@ Thin proxy that receives form POSTs from the wiki and creates GitHub Issues. Exi
 
 ### Specification
 
-- **Runtime**: Cloudflare Workers (free tier: 100K requests/day)
+- **Runtime**: Vercel Serverless Functions (free tier: 100K invocations/month)
 - **Language**: TypeScript
 - **Size**: ~30 lines of logic
-- **Secrets**: `GITHUB_PAT` (personal access token with `repo` scope, stored as Worker environment variable)
+- **Secrets**: `GITHUB_PAT` (fine-grained PAT with issues:write scope, stored as Vercel environment variable)
 - **Endpoint**: `POST /feedback`
 - **CORS**: Allows requests from the wiki domain only
 - **Rate limiting**: Max 10 submissions per IP per hour (prevents abuse)
@@ -363,7 +363,7 @@ wiki_version_after: c7d2e9f
 
 1. **MkDocs theme override** — `overrides/main.html` injecting git SHA into footer
 2. **Section feedback JS** — `overrides/feedback.js` adding 💬 icons and popover to headings
-3. **Cloudflare Worker** — `worker/feedback-worker.ts` proxying form → GitHub Issue
+3. **Vercel Serverless Function** — `api/feedback.ts` proxying form → GitHub Issue
 4. **GitHub labels** — Create label taxonomy via `gh label create`
 5. **CLAUDE.md update** — Add PROCESS FEEDBACK operation
 6. **MkDocs config** — Register theme override directory
@@ -374,8 +374,8 @@ wiki_version_after: c7d2e9f
 ### D1: Section-level, not paragraph-level
 Paragraphs are unstable targets. Sections are anchored by headings, which survive edits, work across renderers (MkDocs, Obsidian, plain text), and provide meaningful content boundaries. Section-level is sufficient for the review team size and wiki scale.
 
-### D2: Cloudflare Worker as proxy
-Required because reviewers don't have GitHub accounts. The Worker is the thinnest possible bridge: receive POST, validate, create Issue. No other viable option exists for anonymous → GitHub Issue creation without introducing a different external dependency.
+### D2: Vercel Serverless Function as proxy
+Required because reviewers don't have GitHub accounts. The serverless function is the thinnest possible bridge: receive POST, validate, create Issue. Hosted on Vercel (free tier) rather than Cloudflare Workers, because Cloudflare's Bot Fight Mode on `workers.dev` subdomains blocks cross-origin `fetch()` requests from browsers. Vercel's API routes serve responses directly without intermediary bot protection.
 
 ### D3: Dual storage (Issues + repo archive)
 GitHub Issues provide live tracking with LLM access via `gh` CLI. In-repo markdown archives provide permanence, version tracking, and Obsidian visibility. Neither alone is sufficient: Issues lack permanence (can be deleted, platform-dependent); markdown archives lack live state management (can't be "open" or "closed").

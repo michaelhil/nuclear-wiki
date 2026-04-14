@@ -1,0 +1,24 @@
+{
+  "framework": null,
+  "buildCommand": "",
+  "outputDirectory": "",
+  "installCommand": "",
+  "functions": {
+    "api/feedback.ts": {
+      "maxDuration": 10
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "https://michaelhil.github.io" },
+        { "key": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/((?!api/).*)", "destination": "/api/feedback" }
+  ]
+}

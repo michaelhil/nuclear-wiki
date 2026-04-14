@@ -141,6 +141,12 @@
         popover.querySelector('form').addEventListener('submit', function(e) {
           e.preventDefault();
           var btn = popover.querySelector('button[type="submit"]');
+          var now = Date.now();
+          if (now - lastSubmitTime < 30000) {
+            var secs = Math.ceil((30000 - (now - lastSubmitTime)) / 1000);
+            alert('Please wait ' + secs + ' seconds before submitting again.');
+            return;
+          }
           btn.disabled = true;
           btn.textContent = 'Submitting...';
 
@@ -167,17 +173,21 @@
             body: JSON.stringify(data)
           })
           .then(function(r) {
-            if (!r.ok) throw new Error('Submit failed');
+            if (!r.ok) throw new Error('Status ' + r.status);
+            lastSubmitTime = Date.now();
             closeFeedback();
             showToast('Thank you — feedback submitted');
           })
-          .catch(function() {
+          .catch(function(err) {
             btn.disabled = false;
             btn.textContent = 'Submit';
-            alert('Could not submit feedback. Please try again.');
+            alert('Could not submit feedback. Please try again.\n\n(' + err.message + ')');
           });
         });
       }
+
+      // Debounce: track last submission time, block for 30s
+      var lastSubmitTime = 0;
 
       function closeFeedback() {
         var b = document.querySelector('.feedback-backdrop');

@@ -5,3 +5,5 @@ site/
 __pycache__/
 .env
 worker/.wrangler/
+.vercel/
+.vercel
