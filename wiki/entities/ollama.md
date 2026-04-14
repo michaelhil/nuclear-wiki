@@ -6,9 +6,12 @@ sources:
 related:
   - "[[local-deployment]]"
   - "[[capability-gradient]]"
+  - "[[quantization]]"
+  - "[[frontier-vs-local-models]]"
 tags:
   - tools
   - local-deployment
+  - infrastructure
 confidence: high
 created: 2026-04-13
 updated: 2026-04-13
@@ -16,6 +19,17 @@ updated: 2026-04-13
 
 # Ollama
 
-A tool for running LLMs locally. Referenced in Report 6 as the primary serving tool for Level 1 of the [[capability-gradient]] (local deployment and model comparison). Enables running open-weight models behind air-gap boundaries — critical for nuclear applications where plant data must not leave the site.
+Open-source tool for running LLMs locally, abstracting model loading, [[quantization]], and GPU memory management.
 
-Supports [[quantization|quantised]] models (GGUF format), enabling deployment on hardware ranging from high-end servers to workstations.
+## Role in Nuclear AI Prototyping
+
+Primary serving tool for Level 1 of the [[capability-gradient]]. Entry point for nuclear researchers to run models behind air-gap boundaries.
+
+## Key Features for Nuclear Use
+
+- **GGUF format**: Runs quantised models (4-bit to 8-bit) on workstations to high-end servers
+- **Model library**: Llama, Mistral, Gemma, Qwen families — supports [[model-heterogeneity]] experiments
+- **OpenAI-compatible API**: Existing [[mcp|MCP]] integrations work without code changes
+- **No cloud dependency**: All inference local, no provider safety filters suppressing nuclear-domain discussion
+
+Enables the critical L0→L1 transition where the researcher gains control over the full inference pipeline.

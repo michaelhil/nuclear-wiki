@@ -8,6 +8,9 @@ related:
   - "[[delivery-modes]]"
   - "[[context-divergence]]"
   - "[[pwr]]"
+  - "[[situation-awareness]]"
+  - "[[hsi-architecture]]"
+  - "[[cognitive-load]]"
 tags:
   - scenario
   - pwr
@@ -25,11 +28,32 @@ updated: 2026-04-13
 
 ## Description
 
-A reactor transient triggers multiple simultaneous alarms. Five agents respond concurrently, producing output that risks exceeding the operator's processing capacity. Demonstrates why delivery mode controls (flow gating, priority sequencing) are essential for preventing information flooding during high-activity periods.
+A reactor transient triggers a cascade of alarms across RCS, pressuriser, steam generators, and containment. Alarm count exceeds operator processing capacity within seconds. Tests whether multi-agent advisory provides net benefit (filtering, prioritising, synthesising) or net harm (adding information flood on top of alarm flood).
 
-## Key Design Elements
+## Agent Architecture
 
-- Flow-gated delivery prevents simultaneous arrival of 5 agent outputs
-- Priority ordering by safety significance rather than response time
-- [[context-divergence]] develops as agents compress different parts of the evolving situation
-- Agent-parallel execution model to reduce total latency during time-critical events
+- **RCS analyst**: Monitors temperature, pressure, flow, level
+- **Secondary analyst**: Monitors steam generators, feedwater, secondary-side conditions
+- **Alarm diagnostician**: Cross-references active alarms against known patterns in operating experience. Identifies consequential vs symptomatic alarms
+- **Procedure navigator**: Tracks which EOP path current conditions require, immediate actions, approaching decision points
+- **Synthesiser**: Integrates outputs into priority-ordered assessment
+
+## The Flooding Problem
+
+Without delivery controls, 5 agents respond simultaneously — each producing 200-400 tokens on top of the alarm cascade. Makes the situation **worse**, not better.
+
+## Delivery Mode Solution
+
+**Flow-gated delivery**: Procedure navigator first (what to do), alarm diagnostician second (what's causing this), synthesiser third (overall picture), specialists on request. Operator controls pacing and can invoke [[human-authority|room pause]].
+
+## Agent-Parallel Execution
+
+Agents run in parallel despite sequential delivery — all begin analysis when transient detected. Total latency ≈ slowest single agent. The synthesiser has all specialist outputs by its delivery turn.
+
+## Temporal Coherence
+
+During fast transients, agents starting at different times work with different parameter snapshots. The synthesiser detects and flags temporal skew between assessments.
+
+## Demonstrated Principles
+
+Tests whether [[delivery-modes]] convert potential information flood into managed stream. Tests [[alarm-prioritization]] value. Tests Pattern 9 viability under time pressure.

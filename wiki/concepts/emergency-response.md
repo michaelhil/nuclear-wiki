@@ -2,8 +2,8 @@
 title: "Emergency Response"
 type: concept
 sources:
-  - raw/reports/report3-nuclear-regulatory.md
-  - raw/reports/report4-operational-scenarios.md
+  - raw/reports/report3-nuclear-v11.md
+  - raw/reports/report4-scenarios-v10.md
 related:
   - "[[scenario-loca]]"
   - "[[graded-autonomy-tiers]]"

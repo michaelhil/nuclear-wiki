@@ -2,7 +2,7 @@
 title: "Epistemic Independence"
 type: concept
 sources:
-  - raw/reports/report2-multi-agent-systems.md
+  - raw/reports/report2-multiagent-v10.md
 related:
   - "[[monoculture-collapse]]"
   - "[[model-heterogeneity]]"

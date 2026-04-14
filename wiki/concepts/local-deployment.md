@@ -2,8 +2,8 @@
 title: "Local Deployment"
 type: concept
 sources:
-  - raw/reports/report1-llm-foundations.md
-  - raw/reports/report6-prototyping-guide.md
+  - raw/reports/report1-llm-foundations-v12.md
+  - raw/reports/report6-prototyping-guide-v12.md
 related:
   - "[[quantization]]"
   - "[[fine-tuning]]"

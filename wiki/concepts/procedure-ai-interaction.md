@@ -2,8 +2,8 @@
 title: "Procedure-AI Interaction"
 type: concept
 sources:
-  - raw/reports/report1-llm-foundations.md
-  - raw/reports/report4-operational-scenarios.md
+  - raw/reports/report1-llm-foundations-v12.md
+  - raw/reports/report4-scenarios-v10.md
 related:
   - "[[knowledge-graphs]]"
   - "[[graded-autonomy-tiers]]"

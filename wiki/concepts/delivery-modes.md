@@ -2,7 +2,7 @@
 title: "Delivery Modes"
 type: concept
 sources:
-  - raw/reports/report2-multi-agent-systems.md
+  - raw/reports/report2-multiagent-v10.md
 related:
   - "[[human-authority]]"
   - "[[multi-agent-patterns]]"

@@ -2,7 +2,7 @@
 title: "Monoculture Collapse"
 type: concept
 sources:
-  - raw/reports/report2-multi-agent-systems.md
+  - raw/reports/report2-multiagent-v10.md
 related:
   - "[[epistemic-independence]]"
   - "[[common-cause-failure]]"

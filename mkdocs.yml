@@ -84,7 +84,12 @@ nav:
       - concepts/hallucination.md
       - concepts/calibration.md
       - concepts/sycophancy.md
+      - concepts/output-vacuity.md
+      - concepts/reasoning-models.md
+      - concepts/prompt-injection.md
+      - concepts/context-rot.md
     - Knowledge & Grounding:
+      - concepts/structured-output.md
       - concepts/retrieval-augmented-generation.md
       - concepts/knowledge-graphs.md
       - concepts/tool-calling.md
@@ -97,6 +102,7 @@ nav:
       - concepts/multi-agent-patterns.md
       - concepts/delivery-modes.md
       - concepts/context-divergence.md
+      - concepts/degradation-and-recovery.md
     - Independence & Safety:
       - concepts/epistemic-independence.md
       - concepts/monoculture-collapse.md
@@ -108,6 +114,7 @@ nav:
       - concepts/human-authority.md
       - concepts/automation-bias.md
       - concepts/trust-calibration.md
+      - concepts/cognitive-load.md
       - concepts/operator-modelling.md
     - Nuclear Operations:
       - concepts/graded-autonomy-tiers.md
@@ -168,6 +175,7 @@ nav:
       - entities/nureg-0711.md
       - entities/nureg-1792.md
       - entities/nureg-2199.md
+  - Glossary: glossary.md
   - Activity Log: log.md
   - Tags: tags.md
 

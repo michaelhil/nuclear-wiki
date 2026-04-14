@@ -2,7 +2,7 @@
 title: "Post-Training Alignment"
 type: concept
 sources:
-  - raw/reports/report1-llm-foundations.md
+  - raw/reports/report1-llm-foundations-v12.md
 related:
   - "[[sycophancy]]"
   - "[[calibration]]"

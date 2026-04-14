@@ -2,7 +2,7 @@
 title: "Build vs. Assess Gap"
 type: concept
 sources:
-  - raw/reports/report6-prototyping-guide.md
+  - raw/reports/report6-prototyping-guide-v12.md
 related:
   - "[[capability-gradient]]"
   - "[[evaluation-harness]]"

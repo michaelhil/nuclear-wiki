@@ -2,7 +2,7 @@
 title: "Graded Autonomy Tiers"
 type: concept
 sources:
-  - raw/reports/report3-nuclear-regulatory.md
+  - raw/reports/report3-nuclear-v11.md
 related:
   - "[[nrc]]"
   - "[[defense-in-depth]]"

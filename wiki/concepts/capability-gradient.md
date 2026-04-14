@@ -2,7 +2,7 @@
 title: "Capability Gradient"
 type: concept
 sources:
-  - raw/reports/report6-prototyping-guide.md
+  - raw/reports/report6-prototyping-guide-v12.md
 related:
   - "[[build-vs-assess-gap]]"
   - "[[evaluation-harness]]"

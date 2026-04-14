@@ -7,7 +7,9 @@ related:
   - "[[common-cause-failure]]"
   - "[[model-heterogeneity]]"
   - "[[knowledge-graphs]]"
+  - "[[epistemic-independence]]"
   - "[[pwr]]"
+  - "[[defense-in-depth]]"
 tags:
   - scenario
   - pwr
@@ -21,15 +23,28 @@ updated: 2026-04-13
 
 **Reactor**: Generic PWR.
 **Pattern**: Pattern 9 + model diversity.
-**Primary concepts**: [[common-cause-failure]], [[knowledge-graphs|KG]] guardrails.
+**Primary concepts**: [[common-cause-failure]], [[knowledge-graphs|KG]] guardrails, [[epistemic-independence]].
 
 ## Description
 
-Two agents on different base models independently verify a safety-related assessment. KG guardrails enforce hard constraints against verified domain knowledge. Demonstrates why [[model-heterogeneity]] is a safety requirement for verification roles, not an enhancement — agents on the same model share systematic errors ([[monoculture-collapse]]).
+An AI agent recommends a safety-significant action. A second agent on a **different base model** independently evaluates the same situation. This directly tests whether [[model-heterogeneity]] provides genuine [[epistemic-independence]].
 
-## Key Design Elements
+## Architecture
 
-- Two different base models from different providers
-- KG constraint checking validates outputs against plant configuration
-- Agreement between heterogeneous agents carries genuine epistemic weight
-- Disagreement triggers conservative action and human review
+- **Primary analyst** (Model A): Evaluates situation, queries plant data, retrieves procedures, produces recommendation
+- **Verification agent** (Model B, different provider): Receives same plant data but performs own independent analysis. Does NOT receive the primary analyst's recommendation — works from raw data to conclusion
+- **KG validator**: Checks both outputs against [[knowledge-graphs|knowledge graph]] of Tech Spec limits, operability requirements, and procedure prerequisites
+
+## Why Model Diversity Is Required
+
+Same base model = shared systematic biases. Agreement carries no more epistemic weight than asking the same person twice ([[monoculture-collapse]]). Different models from different providers have less correlated errors — agreement provides genuine evidence of correctness, disagreement signals genuine uncertainty.
+
+## Outcome Handling
+
+- **Both agree + KG validates**: High confidence, presented to operator with [[human-authority|governance gate]]
+- **Agents disagree**: Both assessments shown with disagreement highlighted. Conservative action pending operator resolution
+- **KG flags either output**: Flagged assertion blocked before reaching operator
+
+## Demonstrated Principles
+
+This is [[defense-in-depth]] for AI: three independent layers (Model A, Model B verification, KG constraint checking) with distinct failure modes. Tests whether independence produces measurable error detection improvement over same-model verification.

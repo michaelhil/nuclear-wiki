@@ -2,8 +2,8 @@
 title: "Shift Handover"
 type: concept
 sources:
-  - raw/reports/report1-llm-foundations.md
-  - raw/reports/report4-operational-scenarios.md
+  - raw/reports/report1-llm-foundations-v12.md
+  - raw/reports/report4-scenarios-v10.md
 related:
   - "[[scenario-shift-handover]]"
   - "[[situation-awareness]]"

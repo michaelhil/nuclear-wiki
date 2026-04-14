@@ -6,18 +6,29 @@ sources:
 related:
   - "[[human-reliability-analysis]]"
   - "[[nrc]]"
+  - "[[spar-h]]"
+  - "[[idheas-eca]]"
+  - "[[atheana]]"
 tags:
   - regulation
   - hra
+  - methodology
 confidence: high
 created: 2026-04-13
 updated: 2026-04-13
 ---
 
-# NUREG-1792
+# NUREG-1792 — Good Practices for HRA
 
-NRC guidance on good practices for implementing human reliability analysis. Provides practical guidance on selecting HRA methods, defining human failure events, and integrating HRA results into probabilistic safety assessment.
+NRC guidance on implementing human reliability analysis in PSAs. Covers method selection, HFE definition, HEP quantification, and event tree integration.
 
-## Relevance to AI Advisory
+## Key Good Practices
 
-The good practices framework needs extension for AI-assisted operations. Report 5 demonstrates where current HRA practice handles the AI interaction and where it cannot, using [[spar-h]], [[idheas-eca]], and [[atheana]] walkthroughs.
+- **Scenario-based**: HFEs defined in context of specific accident scenarios, not generically
+- **Method selection**: [[atheana|ATHEANA]] for commission errors, [[spar-h|SPAR-H]] for screening, [[idheas-eca|IDHEAS-ECA]] for cognitive analysis
+- **Dependency assessment**: Sequential actions assessed for dependency
+- **Documentation**: Full traceability from scenario through HFE to quantification
+
+## Extension Needs for AI-Assisted Operations
+
+Report 5 identifies needs for: new HFE types (follow incorrect AI, override correct AI), new dependency structures (three-way conditional), new [[performance-shaping-factors]] (AI reliability, trust calibration), and acknowledgment that no empirical data exists for AI-related HEPs.

@@ -6,6 +6,8 @@ title: Nuclear AI Wiki
 
 A living knowledge base on AI agent systems for nuclear power plant operations. Compiled from a six-report series by Michael Hildebrandt (IFE, 2026).
 
+**[[glossary|Glossary]]** — Alphabetical quick-reference for all key terms.
+
 ## Source Summaries
 
 - [[summary-llm-foundations]] — Report 1: LLM architecture, agent systems, failure modes, knowledge grounding
@@ -27,16 +29,21 @@ A living knowledge base on AI agent systems for nuclear power plant operations. 
 
 ### Failure Modes
 - [[hallucination]] — Confident fabrication, confidence-without-correctness problem
+- [[output-vacuity]] — Slop: superficially competent but substantively empty output
 - [[calibration]] — Overconfidence, degradation on hard questions
 - [[sycophancy]] — Agreement bias from RLHF training
 - [[automation-bias]] — Over-reliance on AI recommendations
 - [[trust-calibration]] — Matching operator trust to AI reliability
+- [[prompt-injection]] — Adversarial inputs altering agent behaviour
+- [[context-rot]] — Performance degradation as input length increases
 
 ### Knowledge & Grounding
 - [[retrieval-augmented-generation]] — RAG architecture, failure points, context rot
 - [[knowledge-graphs]] — Structured constraints, guardrails, nuclear procedures as graphs
+- [[structured-output]] — JSON mode, grammar-constrained decoding
 - [[fine-tuning]] — LoRA, QLoRA, when to fine-tune vs use RAG
 - [[quantization]] — GPTQ, AWQ, GGUF, accuracy trade-offs
+- [[reasoning-models]] — Extended thinking, visible reasoning chains
 
 ### Agent Architecture
 - [[agent-architecture]] — Perceive-reason-act loop, ReAct pattern, memory types
@@ -51,7 +58,9 @@ A living knowledge base on AI agent systems for nuclear power plant operations. 
 - [[model-heterogeneity]] — Using different foundation models
 - [[delivery-modes]] — How agent outputs reach humans
 - [[context-divergence]] — Agents developing different situational pictures
+- [[degradation-and-recovery]] — Graceful degradation, fallback modes
 - [[situation-awareness]] — SA Levels 1-3 mapped to LLM architecture
+- [[cognitive-load]] — Operator supervision limits, attention management
 
 ### Nuclear Operations
 - [[defense-in-depth]] — Layered barriers, epistemic analogue for AI

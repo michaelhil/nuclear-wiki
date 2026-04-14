@@ -2,7 +2,7 @@
 title: "Alarm Prioritization"
 type: concept
 sources:
-  - raw/reports/report4-operational-scenarios.md
+  - raw/reports/report4-scenarios-v10.md
 related:
   - "[[scenario-concurrent-alarms]]"
   - "[[delivery-modes]]"

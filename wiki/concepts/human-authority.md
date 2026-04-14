@@ -2,8 +2,8 @@
 title: "Human Authority"
 type: concept
 sources:
-  - raw/reports/report2-multi-agent-systems.md
-  - raw/reports/report3-nuclear-regulatory.md
+  - raw/reports/report2-multiagent-v10.md
+  - raw/reports/report3-nuclear-v11.md
 related:
   - "[[graded-autonomy-tiers]]"
   - "[[delivery-modes]]"

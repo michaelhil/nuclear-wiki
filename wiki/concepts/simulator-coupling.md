@@ -2,7 +2,7 @@
 title: "Simulator Coupling"
 type: concept
 sources:
-  - raw/reports/report6-prototyping-guide.md
+  - raw/reports/report6-prototyping-guide-v12.md
 related:
   - "[[relap5]]"
   - "[[frapcon]]"

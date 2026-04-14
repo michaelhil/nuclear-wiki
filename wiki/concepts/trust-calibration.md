@@ -2,8 +2,8 @@
 title: "Trust Calibration"
 type: concept
 sources:
-  - raw/reports/report1-llm-foundations.md
-  - raw/reports/report3-nuclear-regulatory.md
+  - raw/reports/report1-llm-foundations-v12.md
+  - raw/reports/report3-nuclear-v11.md
 related:
   - "[[calibration]]"
   - "[[automation-bias]]"
